@@ -4,3 +4,4 @@
 .idea/*
 test*
 db.*
+prospecting/config.py
