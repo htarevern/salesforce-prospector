@@ -1,0 +1,2 @@
+Django==1.6.2
+salesforce-python-sdk==0.1.2
