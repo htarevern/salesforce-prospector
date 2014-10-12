@@ -1,7 +1,13 @@
-# Salesforce Prospector
+Salesforce Prospector
+=====================
 
-# Install
+Install
+=======
 
-* Install the virtual environment
+- Install the virtual environment
 
-* Install the Python libraries: `pip install -r requirements.txt`
+- Install the Python libraries:
+
+.. code::
+
+	pip install -r requirements.txt`
