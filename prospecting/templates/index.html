@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/index.css">
+  </head>
+
+  <body>
+    <script type="text/x-handlebars" id="application">
+    
+      <div class="row header">
+          <div class="col-md-9">
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                {% verbatim %}
+                {{#link-to 'index' class="navbar-brand"}}
+                  <img src="http://community.data.com/t5/image/serverpage/image-id/9004iBD3C66D06BB0550E" class="img-responsive logo-image" alt="Responsive image"> {{/link-to}}
+                {% endverbatim %}
+              </div>
+            </div>
+          </nav>
+          </div>
+          <div class="col-md-3">
+            <div class="user-name">
+              <span class="glyphicon glyphicon-user "></span> Hormoz Tarevern
+            </div>
+          </div>
+      </div>
+
+      {% verbatim %}
+        {{outlet}}
+      {% endverbatim %}
+    
+    
+    </script>
+
+    <script type="text/x-handlebars" id="index">
+    {% verbatim %}
+
+    <div class="row home-page">
+
+      <div class="col-md-8 col-md-offset-2">
+        <div class="row search-text-warpp">
+          <h1>Discover your next business connection</h1>
+        </div>
+
+        <div class="row search-box">
+          <div class="col-md-10 col-md-offset-1">
+
+            <div class="row search-input-wrapp">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" > {{sobject}} <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" {{action "changeSearchType" "company" on="click"}} >Company</a></li>
+                    <li><a href="#" {{action "changeSearchType" "contact" on="click"}} >Contact</a></li>
+                  </ul>
+                </div>
+                {{input action="search" value=keyword placeholder=placeholder class="form-control search-input"}}
+              </div>
+            </div>
+
+            <div class="row search-btn-wrapp">
+              <div class="col-md-8 col-md-offset-2">
+                <button {{action 'search'}} type="button" class="btn btn-default search-btn">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    {% endverbatim %}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="search">
+    {% verbatim %}
+      <div class="row query-page">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="row">
+            <div class="col-md-6 search-box">
+              <div class="row search-input-wrapp">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" > {{selectedOption}} <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" {{action "changeSearchType" "company" on="click"}} >Company</a></li>
+                      <li><a href="#" {{action "changeSearchType" "contact" on="click"}} >Contact</a></li>
+                    </ul>      
+                  </div>
+                  {{input action="search" value=keyword placeholder=placeholder class="form-control search-input"}}
+                  <span class="input-group-btn">
+                    <button {{action 'search'}} type="button" class="btn btn-default search-btn">
+                      <span class="glyphicon glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-md-offset-2">
+              <div class="balance-box">
+                <div class="row balance-text">
+                  <span class="glyphicon glyphicon-asterisk"></span>TestUser Balance
+                </div>
+                <div class="row balance-number">
+                  {{balance}} Points
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <div class="row select-box">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default btn-xs checkbox-btn">
+                {{view Ember.Checkbox checked=selectAll classNames="selectall-checkbox"}}
+              </button>
+            </div>
+            
+            <div class="col-md-6">
+              {{purchase-item action="purchaseCompleted" model=model multiplePurchase=true sobject=sobject}}
+            </div>
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="row table-box">
+        <div class="col-md-10 col-md-offset-1">
+        <div class="result-table">
+          <table class="table">
+            <thead>
+              <tr>
+                {{#if isCompany}}
+                  <th class="checkbox-td"></th>
+                  <th>Name</th>
+                  <th>Duns Number</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <th></th>
+                {{else}}
+                  <th></th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th></th>
+                {{/if}}
+              </tr>
+            </thead>
+            
+            <tbody> 
+                {{#if isCompany}}
+                  {{#each company in model}}
+                    <tr>
+                      <td class="checkbox-td">
+                        {{view Ember.Checkbox disabled=company.isOwned checkedBinding="company.selected"}}
+                      </td>
+                      <td>{{company.name}}</td>
+                      <td>{{company.dunsNumber}}</td>
+                      <td>{{company.city}}</td>
+                      <td>{{company.country}}</td>
+                      <td>
+                        {{#if company.isOwned}}
+                          <span class='glyphicon glyphicon glyphicon-ok is-owned'></span>
+                        {{else}}
+                          {{purchase-item action="purchaseCompleted" model=company sobject=sobject}}
+                        {{/if}}
+                      </td>
+                    </tr>
+                {{/each}}
+              
+              {{else}}  
+                {{#each contact in model}}
+                  <tr>
+                    <td class="checkbox-td">
+                      {{view Ember.Checkbox disabled=contact.isOwned checkedBinding="contact.selected"}}
+                    </td>
+                    <td>{{contact.firstName}}</td>
+                    <td>{{contact.lastName}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td>
+                      {{#if contact.isOwned}}
+                        <span class='glyphicon glyphicon glyphicon-ok is-owned'></span>
+                      {{else}}
+                        {{purchase-item action="purchaseCompleted" model=contact sobject=sobject}}
+                      {{/if}}
+                    </td>
+                  </tr>
+                {{/each}}
+              
+              {{/if}}
+            
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+
+    {% endverbatim %}
+    </script>
+
+    <script type="text/x-handlebars" id="components/purchase-item">
+    {% verbatim %}
+      {{#if multiplePurchase}}
+        <button {{action 'multiplePurchase'}} class="btn btn-danger btn-xs purchase-btn" >
+          <span class="glyphicon glyphicon-shopping-cart"></span> Purchase
+        </button>
+      {{else}}
+        <button {{action 'singlePurchase'}} class="btn btn-default btn-xs btn-info">
+          </span>Purchase
+        </button>
+      {{/if}}
+    {% endverbatim %}
+    </script>
+
+    <script src="{{ STATIC_URL }}/jquery/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}/ember/handlebars-1.1.2.js"></script>
+    <script src="{{ STATIC_URL }}/ember/ember-1.5.1.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mockjax/1.5.3/jquery.mockjax.js"></script>
+    <script src="{{ STATIC_URL }}/js/app.js"></script>
+    <script type="text/javascript">
+    $.ajaxSetup({
+      headers: { "X-CSRFToken": "{{csrf_token}}" }
+    });
+    </script>
+  </body>
+</html>

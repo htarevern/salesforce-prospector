@@ -1,0 +1,190 @@
+body {
+	background-color: #e5e5ef;
+}
+.header {
+	background-color: white;
+}
+
+.logo-image {
+	width: 44%;
+	margin-left: 13px;
+}
+
+.user-name {
+	margin-top: 17px;
+	margin-left: 32px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.btn {
+	border-radius: 0px;
+}
+
+.navbar {
+	min-height: 60px;
+	margin-bottom: 0px;
+	border: 0px;
+}
+.navbar-default {
+	background-color: white;
+}
+
+.tab-pane {
+	background-color: white;
+}
+
+.navbar-default .navbar-brand {
+	color: #0057A7;
+}
+
+label {
+	color: #428bca;
+}
+
+.search-type-header {
+	color: #555;
+}
+
+.home-page {
+	background-color: #168ccc;
+	padding-bottom: 60px;
+	padding-top: 20px;
+}
+
+.home-page .search-box {
+	background-color: white;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-bottom: -135px;
+}
+
+.home-page .search-text-warpp {
+	color: #dedeff;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+.home-page .search-text-warpp h1 {
+	font-size: 45px;
+}
+
+.home-page .search-input-wrapp {
+	padding-top: 30px;
+}
+
+.home-page .search-input-wrapp .search-input, .home-page .search-input-wrapp .dropdown-toggle {
+	height: 35px;
+}
+
+.home-page .search-btn-wrapp {
+	padding-top: 35px;
+	padding-bottom: 15px;
+}
+
+.home-page .search-btn-wrapp .search-btn {
+	width: 100%;
+	background-color: #428bca;
+	color: white;
+	font-size: 20px;
+	height: 40px;
+}
+
+
+.query-page {
+	background-color: #168ccc;
+}
+
+.query-page .search-input-wrapp .search-input, .query-page .search-input-wrapp .dropdown-toggle {
+	height: 33px;
+}
+
+.query-page .search-input-wrapp .search-btn {
+	background-color: #428bca;
+	color: white;
+	font-size: 15px;
+	height: 33px;
+}
+
+.search-box {
+	padding-left: 0px;
+	padding-bottom: 11px;
+	padding-top: 15px;
+}
+
+.select-box {
+	background-color: white;
+	height: 45px;
+	margin-top: 10px;
+	padding-top: 9px;
+	padding-left: 10px;
+}
+
+.balance-box {
+	float: right;
+	margin-top: 4px;
+	border-left: 1px solid white;
+	padding-left: 11px;
+	padding-top: 2px;
+}
+
+.balance-box .balance-text {
+	color: #37FDED;
+	font-weight: bold;
+}
+
+.balance-box .balance-number {
+	color: #fff;
+}
+
+.balance-box .glyphicon-asterisk {
+	margin-right: 5px;
+}
+
+.table-box {
+	margin-top: 8px;
+}
+
+.result-table {
+	background-color: white;
+	padding-bottom: 10px;
+}
+
+.checkbox-btn {
+	height: 28px;
+	background-color: #EBEBEB;
+	padding-left: 40px;
+}
+
+.purchase-btn {
+	height: 28px;
+	float: right;
+	margin-right: 10px;
+	width: 110px;
+	background-color: #d14836;
+	color: white;
+	font-size: 13px;
+}
+
+.selectall-checkbox {
+	height: 17px;
+	width: 54px;
+}
+
+.checkbox-td {
+	text-align: center;
+	width: 70px;
+}
+
+.is-owned {
+	margin-left: 30px;
+}
+
+.glyphicon-shopping-cart {
+	padding-right: 4px;
+}
